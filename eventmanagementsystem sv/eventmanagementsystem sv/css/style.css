@@ -1,0 +1,24 @@
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height:350px;
+	width:350px;
+}
+ .imagep{
+	 font-size:26px;
+	 font-family:Garamond;
+	 text-align:center;
+	 color:#000;
+ }
+ .class{
+	 width:100%;
+	 margin-top:100px;
+	 margin-left: auto;
+    margin-right: auto;
+ }
+ .class1{
+	 width:100%;
+	 margin-left: auto;
+    margin-right: auto;
+ }

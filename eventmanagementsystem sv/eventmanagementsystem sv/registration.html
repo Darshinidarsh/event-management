@@ -1,0 +1,176 @@
+<html>
+	<head>
+		<title>Event Management</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link href="css/bootstrap.css" rel="stylesheet"/>
+		<script src="js/JQuery.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<style type="text/css"></style>
+		<link rel="stylesheet" href="css/style.css">
+		<style>
+			.centered {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+					}
+
+		</style>
+	</head>
+	<body>
+	<header>
+		<div class="navbar" style="margin-bottom:0px;background-color:#9400D3;">
+			<!--
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-target="#n" data-toggle="collapse"> 
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="n">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="student.html" style="color:White;"><span class="glyphicon glyphicon-education"></span> Student </a></li>
+					<li><a href="hodlogin.html" style="color:White;"><span class="glyphicon glyphicon-user"></span> HOD </a></li>
+					<li><a href="AdminLogin.html" style="color:White;"><span class="glyphicon glyphicon-user"></span> Admin </a></li>
+				</ul>
+			</div>
+			-->
+		</div>
+		</header>
+	<section style="margin-left:0px;margin-right:0px;">
+		<img src="image/loginback.jpg" alt="Background" class="img-responsive" style="height:552px;width:100%;" />
+		<div class="centered">
+			<form action="registration.php" method="POST">
+				<fieldset style="color:#FFF;">
+					<legend style="color:#FFF;">Register Here
+					</legend>
+					<div class="row">
+					<div class="form-group">
+						<div class="col-lg-4"><label for="name">Name</div>
+						<div class="col-lg-8"><input type="text" name="name" id="name" class="form-control" placeholder="Enter User Name" /></div>
+					</div><br/><br/>
+					<div class="form-group">
+						<div class="col-lg-4"><label for="pno">Phone No</div>
+						<div class="col-lg-8"><input type="text" name="pno" maxlength="10" id="pno" class="form-control" placeholder="Enter Phone Number" /></div>
+					</div><br/><br/>
+					<div class="form-group">
+						<div class="col-lg-4"><label for="email">E-mail</div>
+						<div class="col-lg-8"><input type="text" name="email" id="email" class="form-control" placeholder="Enter E-mail" /></div>
+					</div><br/><br/>
+					<div class="form-group">
+						<div class="col-lg-4"><label for="addr">Address</div>
+						<div class="col-lg-8"><textarea name="tarea" id="tarea" class="form-control" placeholder="Enter Address"></textarea><br/></div>
+					</div><br/>
+					<div class="form-group">
+						<div class="col-lg-4"><label for="password">Password</div>
+						<div class="col-lg-8"><input type="password" name="pass" id="pass" class="form-control" placeholder="Enter Password" /><br/></div>
+					</div><br/>
+					<div class="form-group">
+						<div class="col-lg-4"><label for="conpassword">Confirm-Pass</div>
+						<div class="col-lg-8"><input type="password" name="conpass" id="conpass" class="form-control" placeholder="Enter Confirm-Password" /><br/></div>
+					</div><br/>
+					<div class="form-group">
+						<center>
+							<button type="Reset" class="btn btn-primary" value="Reset">Cancel</button>
+							<button type="Register" class="btn btn-primary" value="Register" onclick="return validate()">Register</button>
+						</center>
+					</div>
+					<div class="form-group">
+						<center>
+							<a href="userlogin.html" style="color:#FFF;"><i>Click Here for Login.</i></a>
+						</center>
+					</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</section>
+	<script>
+		function validate()
+		{
+			var un=document.getElementById('name').value;
+			var unpattern=/^[a-zA-Z ]*$/;
+			if (un == null || un == '')
+			{
+				alert("Please Enter User name");
+				return false;
+			}
+			if (!unpattern.test(un))
+			{
+				alert("Invalid User Name");
+				return false;
+			}
+			
+			var ph=document.getElementById('pno').value;
+			var phpattern=/^(6|7|8|9)[0-9]{9}$/;
+			if(ph == null || ph == '')
+			{
+				alert("Please Enter Phone Number");
+				return false;
+			}
+			if(!phpattern.test(ph))
+			{
+				alert("Invalid PhoneNumber");
+				return false;
+			}
+			
+			var eml=document.getElementById('email').value;
+			var emlpattern=/^[A-Za-z0-9].+@[A-Za-z0-9]+.[A-Za-z]{2,3}$/;
+			if (eml == null || eml == '')
+			{
+				alert("Please Enter E-mail Id");
+				return false;
+			}
+			if (!emlpattern.test(eml))
+			{
+				alert("Invalid E-mail Id");
+				return false;
+			}
+			
+			var add=document.getElementById('tarea').value;
+			var addpattern=/^[a-zA-Z0-9]+$/;
+			if(add == null || add == '')
+			{
+				alert("Please Enter Address");
+				return false;
+			}
+			if(!addpattern.test(add))
+			{
+				alert("Invalid Address");
+				return false;
+			}
+			
+			var pss=document.getElementById('pass').value;
+			var psspattern=/^[a-zA-Z0-9@!]+$/;
+			if (pss == null || pss == '')
+			{
+				alert("Please Enter Password");
+				return false;
+			}
+			if(!psspattern.test(pss))
+			{
+				alert("Invalid Password");
+				return false;
+			}
+			
+			var psss=document.getElementById('conpass').value;
+			if(psss == null || psss == '')
+			{
+				alert("Please Enter Confirm-Password");
+				return false;
+			}
+			if(psss != pss)
+			{
+				alert("Confirm-Pass should match with Password");
+				return false;
+			}
+		}
+	</script>
+	<footer>
+	<div style="min-height:55px;background-color:#9400D3;text-align:center;font-size:15px;color:#FFF;padding-top:15px;">
+			&copy; Event Management System. All Rights Reserved 
+		</div>
+	</footer>
+	</body>
+</html>

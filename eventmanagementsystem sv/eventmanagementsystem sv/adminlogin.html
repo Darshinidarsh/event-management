@@ -1,0 +1,103 @@
+<html>
+	<head>
+		<title>Event Management</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link href="css/bootstrap.css" rel="stylesheet"/>
+		<script src="js/JQuery.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<style type="text/css"></style>
+		<link rel="stylesheet" href="css/style.css">
+		<style>
+			.centered {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+					}
+
+		</style>
+	</head>
+	<body>
+	<header>
+		<div class="navbar" style="margin-bottom:0px;background-color:#9400D3;">
+			<!--
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-target="#n" data-toggle="collapse"> 
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="n">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="student.html" style="color:White;"><span class="glyphicon glyphicon-education"></span> Student </a></li>
+					<li><a href="hodlogin.html" style="color:White;"><span class="glyphicon glyphicon-user"></span> HOD </a></li>
+					<li><a href="AdminLogin.html" style="color:White;"><span class="glyphicon glyphicon-user"></span> Admin </a></li>
+				</ul>
+			</div>
+			-->
+		</div>
+		</header>
+	<section style="min-height:552px;margin-left:0px;margin-right:0px;">
+		<img src="image/login1.jpg" alt="Background" class="img-responsive" style="height:552px;width:100%;" />
+		<div class="centered">
+			<form action="adminlogin.php" method="POST">
+				<fieldset style="color:#FFF;">
+					<legend style="color:#FFF;">Login
+					</legend>
+					<div class="row">
+					<div class="form-group">
+						<div class="col-lg-4"><label for="username">User Name</div>
+						<div class="col-lg-8"><input type="text" name="uname" id="uname" class="form-control" placeholder="Enter User Name" /></div>
+					</div><br/><br/>
+					<div class="form-group">
+						<div class="col-lg-4"><label for="password">Password</div>
+						<div class="col-lg-8"><input type="password" name="pass" id="pass" class="form-control" placeholder="Enter Password" /></div>
+					</div><br/><br/>
+					<div class="form-group">
+						<center>
+							<button type="Reset" class="btn btn-primary" value="Reset">Reset</button>
+							<button type="Login" class="btn btn-primary" value="Login" onclick="return validate()">Login</button>
+						</center>
+					</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</section>
+	<script>
+		function validate()
+		{
+			var un=document.getElementById('uname').value;
+			var unpattern=/^[A-Za-z0-9].+@[A-Za-z0-9]+.[A-Za-z]{2,3}$/;
+			if (un == null || un == '')
+			{
+				alert("Please Enter User Name");
+				return false;
+			}
+			if (!unpattern.test(un))
+			{
+				alert("Invalid Username");
+				return false;
+			}
+			
+			var pswd=document.getElementById('pass').value;
+			var pwdpattern=/^[A-Za-z0-9]+$/;
+			if( pswd== null ||pswd ==='')
+			{
+				alert('Please Enter Password')
+				return false;
+			}
+			if (!pwdpattern.test(pswd)) {
+				alert('Invalid Password,Please enter correct Password');
+				return false;
+			}
+		}
+	</script>
+	<footer>
+	<div style="min-height:55px;background-color:#9400D3;text-align:center;font-size:15px;color:#FFF;padding-top:15px;">
+		&copy; Event Management System. All Rights Reserved 
+	</div>
+	</footer>
+	</body>
+</html>
